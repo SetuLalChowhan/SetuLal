@@ -97,7 +97,7 @@ const ContactSection = () => {
               <h4 className="text-white font-medium mb-4">Follow Me</h4>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/SetuLalChowhan"
                   target="_blank"
                   rel="noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all"
@@ -105,20 +105,12 @@ const ContactSection = () => {
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/setulal-chowhan/"
                   target="_blank"
                   rel="noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all"
                 >
                   <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all"
-                >
-                  <Twitter className="w-5 h-5" />
                 </a>
               </div>
             </div>

@@ -13,7 +13,7 @@ const Footer = () => {
 
         <div className="flex items-center gap-6">
           <a
-            href="https://github.com"
+            href="https://github.com/SetuLalChowhan"
             target="_blank"
             rel="noreferrer"
             className="text-neutral-500 hover:text-white transition-colors"
@@ -22,22 +22,13 @@ const Footer = () => {
             <span className="sr-only">GitHub</span>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/setulal-chowhan/"
             target="_blank"
             rel="noreferrer"
             className="text-neutral-500 hover:text-white transition-colors"
           >
             <Linkedin size={20} />
             <span className="sr-only">LinkedIn</span>
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-neutral-500 hover:text-white transition-colors"
-          >
-            <Twitter size={20} />
-            <span className="sr-only">Twitter</span>
           </a>
         </div>
       </div>
