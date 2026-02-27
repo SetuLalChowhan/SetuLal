@@ -10,6 +10,7 @@ import p5 from "@/assets/images/lob.jpg";
 import p6 from "@/assets/images/cv.jpg";
 import p7 from "@/assets/images/duke.jpg";
 import p8 from "@/assets/images/malik.jpg";
+import anna from "@/assets/images/anna.jpg";
 
 const projects = [
   {
@@ -20,6 +21,16 @@ const projects = [
     tags: ["React", "Laravel", "Tailwind CSS"],
     github: "https://github.com",
     live: "https://lobfile.com/",
+    featured: true,
+  },
+  {
+    title: "AnnaNewa",
+    description:
+      "A modern web application built with Next.js and TypeScript, featuring a robust backend with Node.js and MongoDB for high performance and scalability.",
+    image: anna,
+    tags: ["Next.js", "TypeScript", "Node.js", "MongoDB"],
+    github: "https://github.com",
+    live: "https://ananewa.vercel.app/",
     featured: true,
   },
   {
@@ -114,11 +125,11 @@ const ProjectsSection = () => {
               className="group relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5"
             >
               <div className="aspect-[16/10] overflow-hidden relative">
-                <div className="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent z-10 transition-colors duration-500"></div>
+                <div className="absolute inset-0 bg-transparent group-hover:bg-neutral-900/40 z-10 transition-colors duration-500"></div>
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
+                  className="w-full h-full object-cover object-top filter grayscale-0 group-hover:grayscale scale-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
                 />
               </div>
 

@@ -66,11 +66,11 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="relative w-full aspect-[4/5] max-w-sm mx-auto rounded-3xl overflow-hidden ring-1 ring-white/10 group">
-            <div className="absolute inset-0 bg-emerald-500/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-500"></div>
+            <div className="absolute inset-0 bg-transparent group-hover:bg-emerald-500/10 mix-blend-overlay z-10 transition-all duration-500"></div>
             <img
               src="/setu.jpg"
               alt="Setulal Chowhan Professional"
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
+              className="w-full h-full object-cover grayscale-0 group-hover:grayscale scale-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
             />
           </div>
           <div className="absolute -z-10 -top-8 -right-8 w-64 h-64 bg-emerald-500/20 blur-[100px] rounded-full"></div>
