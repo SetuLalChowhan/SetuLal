@@ -11,6 +11,8 @@ import p6 from "@/assets/images/cv.jpg";
 import p7 from "@/assets/images/duke.jpg";
 import p8 from "@/assets/images/malik.jpg";
 import anna from "@/assets/images/anna.jpg";
+import stakd from "@/assets/images/stakd.jpg";
+import aviation from "@/assets/images/aviation.jpg";
 
 const projects = [
   {
@@ -21,6 +23,26 @@ const projects = [
     tags: ["React", "Laravel", "Tailwind CSS"],
     github: "https://github.com",
     live: "https://lobfile.com/",
+    featured: true,
+  },
+  {
+    title: "Stakd",
+    description:
+      "A full-stack campaign and branding approval platform featuring user authentication, payment integration, dynamic workflows, and project management.",
+    image: stakd,
+    tags: ["React", "Node.js", "PostgreSQL", "Prisma", "TypeScript"],
+    github: "https://github.com",
+    live: "https://getstakd.co/",
+    featured: true,
+  },
+  {
+    title: "Aviation Insider",
+    description:
+      "Our Airline Interview and Assessment Preparation Program offers expert-led coaching for aspiring pilots, current commercial pilots, and military pilots.",
+    image: aviation,
+    tags: ["React.js", "JavaScript", "Tailwind CSS"],
+    github: "https://github.com",
+    live: "https://aviationinsider.com/",
     featured: true,
   },
   {
@@ -139,7 +161,7 @@ const ProjectsSection = () => {
                     {project.title}
                   </h3>
                   <div className="flex gap-3">
-                    <a
+                    {/* <a
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
@@ -147,7 +169,7 @@ const ProjectsSection = () => {
                       aria-label="GitHub Repository"
                     >
                       <Github size={20} />
-                    </a>
+                    </a> */}
                     <a
                       href={project.live}
                       target="_blank"
