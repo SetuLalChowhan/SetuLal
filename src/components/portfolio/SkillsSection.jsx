@@ -11,9 +11,10 @@ const skills = [
   { name: "Node.js", category: "Backend" },
   { name: "Express.js", category: "Backend" },
   { name: "REST APIs", category: "Backend" },
-  { name: "MongoDB (Basic)", category: "Backend" },
+  { name: "MongoDB", category: "Backend" },
+  { name: "PostgreSQL", category: "Backend" },
+  { name: "Prisma", category: "Backend" },
   { name: "Git", category: "Tools" },
-  { name: "Figma (Basic)", category: "Tools" },
 ];
 
 const SkillsSection = () => {
