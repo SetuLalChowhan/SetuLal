@@ -45,6 +45,73 @@ const projects = [
     live: "https://aviationinsider.com/",
     featured: true,
   },
+
+  {
+    title: "Dubai Car Rental Platform",
+    description:
+      "A car rental platform for Dubai where users can browse available cars and directly contact the seller via WhatsApp for bookings.",
+    image: p3,
+    tags: ["React", "Node.js", "Tailwind CSS"],
+    github: "https://github.com",
+    live: "https://hirecardrive.com/",
+    featured: false,
+  },
+
+  {
+    title: "Compound Website",
+    description:
+      "An agency website where users can explore company services and read blogs. Built with React, Laravel, and Tailwind CSS.",
+    image: p8,
+    tags: ["React", "Tailwind CSS", "Laravel"],
+    github: "https://compoundmmc.com/",
+    live: "https://compoundmmc.com/",
+    featured: false,
+  },
+
+  {
+    title: "Construction Calculator",
+    description:
+      "A construction management calculator platform that helps professionals estimate project costs, quantities, materials, and measurements with easy-to-use calculation tools.",
+    image: p8,
+    tags: ["React", "Laravel", "Tailwind CSS"],
+    github: "https://github.com/Mickael12312/mickajobs.git",
+    live: "https://micka231.netlify.app/",
+    featured: false,
+  },
+
+  {
+    title: "Garage Service Platform",
+    description:
+      "An online garage service platform where users can explore garage services, book appointments, and make payments easily. Built with React.js, Laravel, and SQL.",
+    image: p7,
+    tags: ["React.js", "Laravel", "SQL", "Tailwind CSS"],
+    github: "https://github.com",
+    live: "https://dukeautorepair.com/",
+    featured: true,
+  },
+
+  {
+    title: "E-Commerce Platform",
+    description:
+      "A full-stack e-commerce platform built with React, Laravel, and PostgreSQL, featuring user authentication, payment integration, real-time bidding, standard purchasing, and an admin dashboard for product management.",
+    image: p1,
+    tags: ["React", "Laravel", "Stripe", "Tailwind CSS"],
+    github: "https://github.com",
+    live: "https://thehobbynexus.com/",
+    featured: true,
+  },
+
+  {
+    title: "Proxima Ventures Website",
+    description:
+      "A modern company website for Proxima Ventures, dedicated to showcasing innovative business ideas with strong market potential. Built with React and Framer Motion, featuring smooth animations and a fully responsive design.",
+    image: p4,
+    tags: ["React", "Tailwind CSS", "Laravel"],
+    github: "https://github.com",
+    live: "https://proxima21.netlify.app/",
+    featured: false,
+  },
+
   {
     title: "AnnaNewa",
     description:
@@ -64,56 +131,6 @@ const projects = [
     github: "https://procv2.netlify.app/app",
     live: "https://procv2.netlify.app/app",
     featured: true,
-  },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack e-commerce platform built with React, Laravel, and PostgreSQL, featuring user authentication, payment integration, real-time bidding, standard purchasing, and an admin dashboard for product management.",
-    image: p1,
-    tags: ["React", "Laravel", "Stripe", "Tailwind CSS"],
-    github: "https://github.com",
-    live: "https://thehobbynexus.com/",
-    featured: true,
-  },
-  {
-    title: "Garage Service Platform",
-    description:
-      "An online garage service platform where users can explore garage services, book appointments, and make payments easily. Built with React.js, Laravel, and SQL.",
-    image: p7,
-    tags: ["React.js", "Laravel", "SQL", "Tailwind CSS"],
-    github: "https://github.com",
-    live: "https://dukeautorepair.com/",
-    featured: true,
-  },
-  {
-    title: "Dubai Car Rental Platform",
-    description:
-      "A car rental platform for Dubai where users can browse available cars and directly contact the seller via WhatsApp for bookings.",
-    image: p3,
-    tags: ["React", "Node.js", "Tailwind CSS"],
-    github: "https://github.com",
-    live: "https://hirecardrive.com/",
-    featured: false,
-  },
-  {
-    title: "Proxima Ventures Website",
-    description:
-      "A modern company website for Proxima Ventures, dedicated to showcasing innovative business ideas with strong market potential. Built with React and Framer Motion, featuring smooth animations and a fully responsive design.",
-    image: p4,
-    tags: ["React", "Tailwind CSS", "Laravel"],
-    github: "https://github.com",
-    live: "https://proxima21.netlify.app/",
-    featured: false,
-  },
-  {
-    title: "Compound Website",
-    description:
-      "An agency website where users can explore company services and read blogs. Built with React, Laravel, and Tailwind CSS.",
-    image: p8,
-    tags: ["React", "Tailwind CSS", "Laravel"],
-    github: "https://compoundmmc.com/",
-    live: "https://compoundmmc.com/",
-    featured: false,
   },
 ];
 
