@@ -15,7 +15,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-sm font-medium tracking-wide mb-6">
-            Frontend Developer | React & Next.js Enthusiast
+            Software Engineer | Node.js • TypeScript • Next.js • React
           </span>
         </motion.div>
 
@@ -37,11 +37,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          I specialize in crafting responsive and dynamic web interfaces using
-          React and Tailwind CSS. Currently exploring Next.js and deepening my
-          backend knowledge with Node.js to become a full-stack developer.
-          Passionate about clean UI, performance, and building user-focused web
-          experiences.
+          I am a Software Engineer specialized in architecting and building scalable,
+          high-performance web applications using Node.js, TypeScript, Next.js, and React.
+          Dedicated to robust backend systems, clean architecture, and modern user-focused experiences.
         </motion.p>
 
         <motion.div

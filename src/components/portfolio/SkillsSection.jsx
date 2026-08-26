@@ -2,19 +2,18 @@ import React from "react";
 import { motion } from "motion/react";
 
 const skills = [
-  { name: "React.js", category: "Frontend" },
-  { name: "Next.js", category: "Frontend" },
-  { name: "TypeScript", category: "Frontend" },
-  { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Framer Motion", category: "Frontend" },
-  { name: "Responsive Design", category: "Frontend" },
   { name: "Node.js", category: "Backend" },
+  { name: "TypeScript", category: "Full Stack" },
+  { name: "Next.js", category: "Full Stack" },
+  { name: "React.js", category: "Frontend" },
   { name: "Express.js", category: "Backend" },
   { name: "REST APIs", category: "Backend" },
-  { name: "MongoDB", category: "Backend" },
-  { name: "PostgreSQL", category: "Backend" },
-  { name: "Prisma", category: "Backend" },
-  { name: "Git", category: "Tools" },
+  { name: "PostgreSQL", category: "Database" },
+  { name: "MongoDB", category: "Database" },
+  { name: "Prisma ORM", category: "Database" },
+  { name: "Tailwind CSS", category: "Frontend" },
+  { name: "Framer Motion", category: "Frontend" },
+  { name: "Git & Version Control", category: "Tools" },
 ];
 
 const SkillsSection = () => {

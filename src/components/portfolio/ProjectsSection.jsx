@@ -10,6 +10,7 @@ import p5 from "@/assets/images/lob.jpg";
 import p6 from "@/assets/images/cv.jpg";
 import p7 from "@/assets/images/duke.jpg";
 import p8 from "@/assets/images/malik.jpg";
+import p9 from "@/assets/images/micka.jpg";
 import anna from "@/assets/images/anna.jpg";
 import stakd from "@/assets/images/stakd.jpg";
 import aviation from "@/assets/images/aviation.jpg";
@@ -72,7 +73,7 @@ const projects = [
     title: "Construction Calculator",
     description:
       "A construction management calculator platform that helps professionals estimate project costs, quantities, materials, and measurements with easy-to-use calculation tools.",
-    image: p8,
+    image: p9,
     tags: ["React", "Laravel", "Tailwind CSS"],
     github: "https://github.com/Mickael12312/mickajobs.git",
     live: "https://micka231.netlify.app/",

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-
+import SetuAvatar from "@/assets/images/setuAvatar.jpg";
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-6 md:px-12 bg-neutral-950">
@@ -17,30 +17,32 @@ const AboutSection = () => {
             <h2 className="text-4xl font-bold text-white mb-2">About Me</h2>
             <div className="w-16 h-1 bg-emerald-500 rounded-full mb-6"></div>
             <p className="text-xl text-neutral-300 font-medium leading-relaxed">
-              Passionate web developer focused on creating functional and
-              user-friendly digital solutions.
+              Software Engineer dedicated to building scalable backend systems,
+              robust APIs, and high-performance web applications.
             </p>
           </div>
 
           <div className="space-y-4 text-neutral-400 leading-loose">
             <p>
-              My journey began with a strong interest in how technology can
-              solve real-world problems, leading me to gain expertise in React,
-              Next.js, and basic Node.js while building impactful web
-              applications.
+              My journey began with a strong curiosity for system architecture
+              and software engineering, which evolved into deep expertise across{" "}
+              <strong>Node.js</strong>, <strong>TypeScript</strong>,{" "}
+              <strong>Next.js</strong>, and <strong>React</strong> while
+              building reliable and scalable production applications.
             </p>
             <p>
-              I specialize in modern web technologies including React, Node.js,
-              and TypeScript, but I'm always eager to learn new tools and
-              frameworks. I believe in writing clean, maintainable code and
-              creating user experiences that delight and inspire.
+              I specialize in full-lifecycle software development—from designing
+              resilient RESTful APIs, database schemas (PostgreSQL, MongoDB,
+              Prisma), and microservices to engineering responsive,
+              pixel-perfect frontend interfaces. I prioritize clean, type-safe
+              code, system performance, and exceptional user experiences.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-6 pt-4">
             <div className="border border-white/10 rounded-2xl p-6 bg-white/5 backdrop-blur-sm">
               <span className="block text-4xl font-bold text-white mb-2">
-                20+
+                30+
               </span>
               <span className="text-sm text-emerald-400 font-semibold tracking-wider">
                 PROJECTS COMPLETED
@@ -68,7 +70,7 @@ const AboutSection = () => {
           <div className="relative w-full aspect-[4/5] max-w-sm mx-auto rounded-3xl overflow-hidden ring-1 ring-white/10 group">
             <div className="absolute inset-0 bg-transparent group-hover:bg-emerald-500/10 mix-blend-overlay z-10 transition-all duration-500"></div>
             <img
-              src="/setu.jpg"
+              src={SetuAvatar}
               alt="Setulal Chowhan Professional"
               className="w-full h-full object-cover grayscale-0 group-hover:grayscale scale-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
             />
