@@ -15,7 +15,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-sm font-medium tracking-wide mb-6">
-            Software Engineer | Node.js • TypeScript • Next.js • React
+            Software Engineer | Node.js • NestJS • TypeScript • Next.js • React
           </span>
         </motion.div>
 
@@ -38,7 +38,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           I am a Software Engineer specialized in architecting and building scalable,
-          high-performance web applications using Node.js, TypeScript, Next.js, and React.
+          high-performance web applications using Node.js, NestJS, TypeScript, Next.js, and React.
           Dedicated to robust backend systems, clean architecture, and modern user-focused experiences.
         </motion.p>
 

@@ -26,7 +26,7 @@ const AboutSection = () => {
             <p>
               My journey began with a strong curiosity for system architecture
               and software engineering, which evolved into deep expertise across{" "}
-              <strong>Node.js</strong>, <strong>TypeScript</strong>,{" "}
+              <strong>Node.js</strong>, <strong>NestJS</strong>, <strong>TypeScript</strong>,{" "}
               <strong>Next.js</strong>, and <strong>React</strong> while
               building reliable and scalable production applications.
             </p>

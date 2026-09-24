@@ -20,6 +20,7 @@ const experiences = [
     ],
     technologies: [
       "Node.js",
+      "NestJS",
       "TypeScript",
       "Next.js",
       "React",

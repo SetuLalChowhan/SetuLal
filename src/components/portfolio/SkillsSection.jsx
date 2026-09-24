@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 const skills = [
   { name: "Node.js", category: "Backend" },
+  { name: "NestJS", category: "Backend" },
   { name: "TypeScript", category: "Full Stack" },
   { name: "Next.js", category: "Full Stack" },
   { name: "React.js", category: "Frontend" },
