@@ -8,11 +8,11 @@ import ContactSection from "@/components/portfolio/ContactSection";
 
 const Home = () => {
   return (
-    <main className="bg-black text-white min-h-screen font-sans selection:bg-white/90 selection:text-black">
+    <main className="bg-[#f8f8f2] text-[#1a1a1a] min-h-screen font-sans selection:bg-[#bedbff] selection:text-[#1a1a1a]">
       <HeroSection />
-      <AboutSection />
-      <SkillsSection />
       <ProjectsSection />
+      <SkillsSection />
+      <AboutSection />
       <ExperienceSection />
       <ContactSection />
     </main>

@@ -1,117 +1,222 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
+  { name: "Home", href: "#hero", id: "hero" },
+  { name: "Collabs", href: "#projects", id: "projects" },
+  { name: "Services", href: "#skills", id: "skills" },
+  { name: "About", href: "#about", id: "about" },
+  { name: "Experience", href: "#experience", id: "experience" },
+  { name: "Contact", href: "#contact", id: "contact" },
 ];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
+  const [currentTime, setCurrentTime] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Dynamic local time formatting (e.g. "10:56 am")
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const updateTime = () => {
+      const now = new Date();
+      const formatted = now.toLocaleTimeString([], {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }).toLowerCase();
+      setCurrentTime(formatted);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateTime();
+    const interval = setInterval(updateTime, 1000 * 30);
+    return () => clearInterval(interval);
   }, []);
 
+  // Smooth scroll-down hide, scroll-up reveal navigation
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (currentScrollY <= 15) {
+            // At top of page: always visible
+            setIsVisible(true);
+          } else if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 5) {
+            // Scrolling down: hide smoothly
+            setIsVisible(false);
+            setIsMobileMenuOpen(false);
+          } else if (currentScrollY < lastScrollY && lastScrollY - currentScrollY > 5) {
+            // Scrolling up: show smoothly
+            setIsVisible(true);
+          }
+
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  // Scroll spy to dynamically highlight the current section in the nav
+  useEffect(() => {
+    const sectionIds = ["hero", "projects", "skills", "about", "experience", "contact"];
+    const sectionMap = {
+      hero: "Home",
+      projects: "Collabs",
+      skills: "Services",
+      about: "About",
+      experience: "Experience",
+      contact: "Contact",
+    };
+
+    const handleScrollSpy = () => {
+      const scrollPos = window.scrollY + 140;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveLink(sectionMap[sectionIds[i]]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    return () => window.removeEventListener("scroll", handleScrollSpy);
+  }, []);
+
+  // Smooth scroll handler on nav click
+  const handleNavClick = (e, href, name) => {
+    e.preventDefault();
+    setActiveLink(name);
+    setIsMobileMenuOpen(false);
+
+    const targetId = href.replace("#", "");
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      window.history.pushState(null, "", href);
+    } else if (href === "#hero") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      window.history.pushState(null, "", "#hero");
+    }
+  };
+
   return (
-    <nav
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-4"
-          : "bg-transparent py-6"
+    <header
+      className={`fixed top-0 inset-x-0 z-50 w-full bg-[#ffffff] text-[#1a1a1a] transition-transform duration-300 ease-in-out ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="#"
-          className="text-2xl font-bold tracking-tighter text-white z-50 relative"
-        >
-          S<span className="text-emerald-500">.</span>
-        </a>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-8 text-sm font-medium">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className="text-neutral-400 hover:text-white transition-colors py-2"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+      <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Left: SVG Wordmark */}
+        <div className="flex items-center gap-10">
           <a
-            href="#contact"
-            className="px-5 py-2.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
+            href="#hero"
+            onClick={(e) => handleNavClick(e, "#hero", "Home")}
+            className="flex items-center gap-2 text-[16px] font-bold tracking-tight text-[#1a1a1a] hover:opacity-80 transition-opacity"
           >
-            Let's Talk
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000000"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="shrink-0"
+            >
+              <rect width="18" height="18" x="3" y="3" rx="2" />
+              <path d="M7 7h10v10H7z" />
+            </svg>
+            <span>Setu Lal</span>
           </a>
+
+          {/* Center-left: Nav Links */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href, link.name)}
+                className={`text-[16px] font-medium tracking-[-0.4px] text-[#1a1a1a] transition-all relative py-1 ${
+                  activeLink === link.name
+                    ? "border-b-2 border-[#1a1a1a]"
+                    : "opacity-75 hover:opacity-100"
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white z-50 relative p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Right: Signal Green status dot + Live Time */}
+        <div className="hidden sm:flex items-center gap-2.5">
+          <span
+            className="w-2 h-2 rounded-full bg-[#00c950] shrink-0"
+            aria-hidden="true"
+          />
+          <span className="text-[14px] font-normal tracking-[-0.35px] text-[#1a1a1a]">
+            {currentTime || "10:56 am"}
+          </span>
+        </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
-            >
-              <ul className="flex flex-col items-center gap-6 text-2xl font-bold">
-                {navLinks.map((link) => (
-                  <motion.li
-                    key={link.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                  >
-                    <a
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-neutral-300 hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-              <motion.a
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 px-8 py-4 rounded-full bg-white text-black font-semibold text-lg hover:bg-neutral-200 transition-colors"
-              >
-                Let's Talk
-              </motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Mobile Hamburger */}
+        <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#00c950] shrink-0" />
+            <span className="text-[13px] text-[#1a1a1a]">
+              {currentTime || "10:56 am"}
+            </span>
+          </div>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-1.5 text-[#1a1a1a]"
+            aria-label="Toggle Navigation Menu"
+          >
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
-    </nav>
+
+      {/* Mobile Drawer */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#ffffff] px-6 py-6 border-t border-[#f8f8f2] flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href, link.name)}
+              className={`text-[16px] font-medium text-[#1a1a1a] py-2 ${
+                activeLink === link.name
+                  ? "border-b border-[#1a1a1a] inline-block w-fit"
+                  : "opacity-75"
+              }`}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
   );
 };
 

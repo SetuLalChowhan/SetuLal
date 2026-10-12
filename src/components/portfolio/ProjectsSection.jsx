@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import p1 from "@/assets/images/p1.png";
-import p2 from "@/assets/images/p2.png";
 import p3 from "@/assets/images/p3.png";
 import p4 from "@/assets/images/p4.png";
 import p5 from "@/assets/images/lob.jpg";
@@ -16,218 +15,166 @@ import stakd from "@/assets/images/stakd.jpg";
 import aviation from "@/assets/images/aviation.jpg";
 import teleImage from "@/assets/images/teleImage.jpg";
 
-const projects = [
+const allProjects = [
   {
-    title: "TeleHealth - Online Doctor Consultation Platform",
-    description:
-      "A comprehensive telemedicine platform connecting patients and doctors for online consultations, featuring Google Calendar & Google Meet video appointments, secure multi-role Better Auth authentication, and medical appointment scheduling.",
+    title: "TeleHealth Consultation",
+    collab: "Full-Stack System • Next.js & NestJS",
     image: teleImage,
-    tags: ["Next.js", "NestJS", "Better Auth", "PostgreSQL", "Google Meet"],
-    github: "https://github.com",
-    live: "https://github.com",
+    live: "https://telecommunication-sy4h.vercel.app/",
     featured: true,
   },
   {
-    title: "LobFile File Management System",
-    description:
-      "A comprehensive file-management system that lets you upload, organize, and manage files efficiently, with secure storage and easy retrieval",
+    title: "LobFile Cloud Storage",
+    collab: "File Architecture • React & Laravel",
     image: p5,
-    tags: ["React", "Laravel", "Tailwind CSS"],
-    github: "https://github.com",
     live: "https://lobfile.com/",
     featured: true,
   },
   {
-    title: "Stakd",
-    description:
-      "A full-stack campaign and branding approval platform featuring user authentication, payment integration, dynamic workflows, and project management.",
+    title: "Stakd Creative Platform",
+    collab: "Brand Approvals • PostgreSQL & Prisma",
     image: stakd,
-    tags: ["React", "Node.js", "PostgreSQL", "Prisma", "TypeScript"],
-    github: "https://github.com",
     live: "https://getstakd.co/",
     featured: true,
   },
   {
     title: "Aviation Insider",
-    description:
-      "Our Airline Interview and Assessment Preparation Program offers expert-led coaching for aspiring pilots, current commercial pilots, and military pilots.",
+    collab: "Pilot Assessment • React & Modern UI",
     image: aviation,
-    tags: ["React.js", "JavaScript", "Tailwind CSS"],
-    github: "https://github.com",
     live: "https://aviationinsider.com/",
     featured: true,
   },
-
   {
-    title: "Dubai Car Rental Platform",
-    description:
-      "A car rental platform for Dubai where users can browse available cars and directly contact the seller via WhatsApp for bookings.",
+    title: "Dubai Car Rental",
+    collab: "Booking Platform • Node.js & React",
     image: p3,
-    tags: ["React", "Node.js", "Tailwind CSS"],
-    github: "https://github.com",
     live: "https://hirecardrive.com/",
     featured: false,
   },
-
   {
-    title: "Compound Website",
-    description:
-      "An agency website where users can explore company services and read blogs. Built with React, Laravel, and Tailwind CSS.",
+    title: "Compound Agency",
+    collab: "Editorial Website • React & Laravel",
     image: p8,
-    tags: ["React", "Tailwind CSS", "Laravel"],
-    github: "https://compoundmmc.com/",
     live: "https://compoundmmc.com/",
     featured: false,
   },
-
   {
     title: "Construction Calculator",
-    description:
-      "A construction management calculator platform that helps professionals estimate project costs, quantities, materials, and measurements with easy-to-use calculation tools.",
+    collab: "Estimation Engine • Modern Web",
     image: p9,
-    tags: ["React", "Laravel", "Tailwind CSS"],
-    github: "https://github.com/Mickael12312/mickajobs.git",
     live: "https://micka231.netlify.app/",
     featured: false,
   },
-
   {
-    title: "Garage Service Platform",
-    description:
-      "An online garage service platform where users can explore garage services, book appointments, and make payments easily. Built with React.js, Laravel, and SQL.",
+    title: "Duke Auto Repair",
+    collab: "Service Booking • SQL & React",
     image: p7,
-    tags: ["React.js", "Laravel", "SQL", "Tailwind CSS"],
-    github: "https://github.com",
     live: "https://dukeautorepair.com/",
-    featured: true,
+    featured: false,
   },
-
   {
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack e-commerce platform built with React, Laravel, and PostgreSQL, featuring user authentication, payment integration, real-time bidding, standard purchasing, and an admin dashboard for product management.",
+    title: "Hobby Nexus Commerce",
+    collab: "E-Commerce & Bidding • Stripe & PostgreSQL",
     image: p1,
-    tags: ["React", "Laravel", "Stripe", "Tailwind CSS"],
-    github: "https://github.com",
     live: "https://thehobbynexus.com/",
-    featured: true,
+    featured: false,
   },
-
   {
-    title: "Proxima Ventures Website",
-    description:
-      "A modern company website for Proxima Ventures, dedicated to showcasing innovative business ideas with strong market potential. Built with React and Framer Motion, featuring smooth animations and a fully responsive design.",
+    title: "Proxima Ventures",
+    collab: "Venture Showcase • React & Motion",
     image: p4,
-    tags: ["React", "Tailwind CSS", "Laravel"],
-    github: "https://github.com",
     live: "https://proxima21.netlify.app/",
     featured: false,
   },
-
   {
-    title: "AnnaNewa",
-    description:
-      "A modern web application built with Next.js and TypeScript, featuring a robust backend with Node.js and MongoDB for high performance and scalability.",
+    title: "AnnaNewa Platform",
+    collab: "Web Application • Next.js & MongoDB",
     image: anna,
-    tags: ["Next.js", "TypeScript", "Node.js", "MongoDB"],
-    github: "https://github.com",
     live: "https://ananewa.vercel.app/",
-    featured: true,
+    featured: false,
   },
   {
-    title: "Cv Maker",
-    description:
-      "A full-stack CV builder built with React, Node js, featuring user authentication, customizable resume templates, real-time editing, PDF/Doc export.",
+    title: "Cv Maker Engine",
+    collab: "Document Builder • Node.js & React",
     image: p6,
-    tags: ["React", "Node js", "MongoDB", "Tailwind CSS"],
-    github: "https://procv2.netlify.app/app",
     live: "https://procv2.netlify.app/app",
-    featured: true,
+    featured: false,
   },
 ];
 
 const ProjectsSection = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll
+    ? allProjects
+    : allProjects.filter((p) => p.featured);
+
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 bg-neutral-950">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <h2 className="text-4xl font-bold text-white mb-4">Selected Works</h2>
-          <div className="w-16 h-1 bg-emerald-500 rounded-full mb-6"></div>
-          <p className="text-xl text-neutral-400 max-w-2xl">
-            A selection of my recent projects, showcasing my expertise in
-            frontend development and modern web technologies.
-          </p>
-        </motion.div>
+    <section
+      id="projects"
+      className="w-full bg-[#f8f8f2] py-24 md:py-28 px-6"
+    >
+      <div className="max-w-[1200px] mx-auto">
+        {/* Section Heading: 30-48px weight 600 Studio Ink, left-aligned, no kicker, 32-48px gap below */}
+        <div className="mb-10 md:mb-12">
+          <h2 className="text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-[#1a1a1a] tracking-[-1.2px] leading-[1.2] text-left">
+            Collaborations & Projects
+          </h2>
+        </div>
 
+        {/* 2-Column Grid at 32px gap, full-bleed image card, 12px radius, no border, no shadow */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+          {displayedProjects.map((project, index) => (
+            <motion.a
+              key={project.title}
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group relative block w-full aspect-[16/10] sm:aspect-[16/9] rounded-[12px] overflow-hidden bg-[#e5e5dc] focus:outline-none"
             >
-              <div className="aspect-[16/10] overflow-hidden relative">
-                <div className="absolute inset-0 bg-transparent group-hover:bg-neutral-900/40 z-10 transition-colors duration-500"></div>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-top filter grayscale-0 group-hover:grayscale scale-100 group-hover:scale-105 transition-all duration-700 ease-in-out"
-                />
-              </div>
+              {/* Full bleed image */}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
 
-              <div className="p-8">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+              {/* Soft dark vignette gradient on top/left to ensure white text clarity */}
+              <div
+                className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/65 via-[#1a1a1a]/20 to-transparent pointer-events-none"
+                aria-hidden="true"
+              />
+
+              {/* White text overlaid top-left: 20px weight 600 (name), 14px weight 400 (collab credit) */}
+              <div className="absolute top-6 left-6 right-6 flex items-start justify-between pointer-events-none z-10">
+                <div>
+                  <h3 className="text-[20px] font-semibold text-[#ffffff] tracking-[-0.5px] leading-[1.4]">
                     {project.title}
                   </h3>
-                  <div className="flex gap-3">
-                    {/* <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-neutral-400 hover:text-white transition-colors"
-                      aria-label="GitHub Repository"
-                    >
-                      <Github size={20} />
-                    </a> */}
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-neutral-400 hover:text-white transition-colors"
-                      aria-label="Live Demo"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                  </div>
+                  <p className="text-[14px] font-normal text-[#ffffff]/90 tracking-[-0.35px] leading-[1.43] mt-1">
+                    {project.collab}
+                  </p>
                 </div>
-
-                <p className="text-neutral-400 mb-6 leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-neutral-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="w-8 h-8 rounded-full bg-[#1a1a1a]/40 backdrop-blur-sm flex items-center justify-center text-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ArrowUpRight size={16} />
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
+        </div>
+
+        {/* Dark Filled Button: #1a1a1a bg, #ffffff text, 16px weight 500, padding 16px 24px, 8px radius, centered solitary action */}
+        <div className="mt-14 md:mt-16 flex justify-center">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="bg-[#1a1a1a] text-[#ffffff] text-[16px] font-medium tracking-[-0.4px] px-6 py-4 rounded-[8px] hover:opacity-90 active:opacity-95 transition-opacity"
+          >
+            {showAll ? "Show Featured Only" : "Explore All Collaborations"}
+          </button>
         </div>
       </div>
     </section>
