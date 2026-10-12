@@ -14,8 +14,19 @@ import p9 from "@/assets/images/micka.jpg";
 import anna from "@/assets/images/anna.jpg";
 import stakd from "@/assets/images/stakd.jpg";
 import aviation from "@/assets/images/aviation.jpg";
+import teleImage from "@/assets/images/teleImage.jpg";
 
 const projects = [
+  {
+    title: "TeleHealth - Online Doctor Consultation Platform",
+    description:
+      "A comprehensive telemedicine platform connecting patients and doctors for online consultations, featuring Google Calendar & Google Meet video appointments, secure multi-role Better Auth authentication, and medical appointment scheduling.",
+    image: teleImage,
+    tags: ["Next.js", "NestJS", "Better Auth", "PostgreSQL", "Google Meet"],
+    github: "https://github.com",
+    live: "https://github.com",
+    featured: true,
+  },
   {
     title: "LobFile File Management System",
     description:
