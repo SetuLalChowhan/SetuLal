@@ -1,68 +1,28 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Download, ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 pb-16 px-6 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-
-      <div className="max-w-4xl mx-auto text-center z-10">
+    <section
+      id="hero"
+      className="w-full bg-[#f8f8f2] pt-28 md:pt-36 pb-20 md:pb-28 px-6"
+    >
+      <div className="max-w-[1200px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-[1100px]"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-sm font-medium tracking-wide mb-6">
-            Software Engineer | Node.js • NestJS • TypeScript • Next.js • React
-          </span>
-        </motion.div>
+          {/* Display Headline: 88-96px, weight 700, line-height 1.00, letter-spacing -2.4px, in Studio Ink */}
+          <h1 className="text-[44px] sm:text-[64px] md:text-[84px] lg:text-[96px] font-bold text-[#1a1a1a] leading-[1.00] tracking-[-2.4px] text-left">
+            Software engineer architecting scalable systems and refined web experiences.
+          </h1>
 
-        <motion.h1
-          className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-white"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          Hi, I'm{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
-            Setulal Chowhan
-          </span>
-        </motion.h1>
-
-        <motion.p
-          className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          I am a Software Engineer specialized in architecting and building scalable,
-          high-performance web applications using Node.js, NestJS, TypeScript, Next.js, and React.
-          Dedicated to robust backend systems, clean architecture, and modern user-focused experiences.
-        </motion.p>
-
-        <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <a
-            href="#projects"
-            className="group flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all"
-          >
-            View My Work
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="/setu.pdf"
-            download
-            className="group flex items-center gap-2 px-8 py-4 bg-white/5 text-white font-semibold rounded-full border border-white/10 hover:bg-white/10 transition-all"
-          >
-            Download Resume
-            <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-          </a>
+          {/* Subtitle: 20px, weight 400, Studio Ink at 60% opacity, 32px gap above, left-aligned */}
+          <p className="mt-8 text-[18px] sm:text-[20px] font-normal leading-[1.4] tracking-[-0.5px] text-[#1a1a1a]/60 max-w-3xl text-left">
+            Hi, I'm Setulal Chowhan — specialized in Node.js, NestJS, TypeScript, Next.js, and React. Dedicated to robust backend systems, clean architecture, and modern user-focused applications.
+          </p>
         </motion.div>
       </div>
     </section>
