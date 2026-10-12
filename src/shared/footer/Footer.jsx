@@ -1,34 +1,35 @@
 import React from "react";
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-8 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-neutral-500 text-sm flex items-center gap-1.5">
-          Crafted with{" "}
-          <Heart size={14} className="text-emerald-500 fill-emerald-500" /> by
-          Setulal Chowhan
+    <footer className="w-full bg-[#f8f8f2] pt-24 md:pt-28 pb-16 px-6 border-t border-[#1a1a1a]">
+      <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-baseline justify-between gap-6">
+        <p className="text-[14px] font-normal tracking-[-0.35px] text-[#1a1a1a]">
+          © {new Date().getFullYear()} Setulal Chowhan. All rights reserved.
         </p>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
+          <a
+            href="#hero"
+            className="text-[14px] font-normal tracking-[-0.35px] text-[#1a1a1a] hover:underline underline-offset-4"
+          >
+            Back to Top
+          </a>
           <a
             href="https://github.com/SetuLalChowhan"
             target="_blank"
             rel="noreferrer"
-            className="text-neutral-500 hover:text-white transition-colors"
+            className="text-[14px] font-normal tracking-[-0.35px] text-[#1a1a1a] hover:underline underline-offset-4"
           >
-            <Github size={20} />
-            <span className="sr-only">GitHub</span>
+            GitHub
           </a>
           <a
             href="https://www.linkedin.com/in/setulal-chowhan/"
             target="_blank"
             rel="noreferrer"
-            className="text-neutral-500 hover:text-white transition-colors"
+            className="text-[14px] font-normal tracking-[-0.35px] text-[#1a1a1a] hover:underline underline-offset-4"
           >
-            <Linkedin size={20} />
-            <span className="sr-only">LinkedIn</span>
+            LinkedIn
           </a>
         </div>
       </div>
