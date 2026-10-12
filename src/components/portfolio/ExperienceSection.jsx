@@ -1,226 +1,147 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Calendar, MapPin, Building2, GraduationCap } from "lucide-react";
 
 const experiences = [
   {
     role: "Software Engineer",
     company: "Softvence Agency",
-    location: "Mohakhali Wireless, Medona Tower, Dhaka, Bangladesh",
-    period: "November 2024 - Present",
+    location: "Medona Tower, Mohakhali, Dhaka",
+    period: "Nov 2024 — Present",
     type: "Full-time",
     description:
       "Engineering full-stack web applications, scalable backend services, and high-performance user interfaces using Node.js, TypeScript, Next.js, and React.",
-    responsibilities: [
-      "Architected and maintained full-stack web applications and robust services with Next.js, React, TypeScript, and Node.js.",
-      "Designed and deployed performant RESTful APIs and backend integration layers with Express and Node.js.",
-      "Collaborated with cross-functional teams to implement scalable database models (PostgreSQL & MongoDB) and optimized state flows.",
-      "Optimized application performance, web vitals, and rendering speeds for high-traffic enterprise solutions.",
-      "Employed Git workflows, code reviews, and software engineering best practices to maintain high code quality.",
-    ],
-    technologies: [
-      "Node.js",
-      "NestJS",
-      "TypeScript",
-      "Next.js",
-      "React",
-      "PostgreSQL",
-      "MongoDB",
-      "Tailwind CSS",
-      "REST APIs",
-      "Git",
-    ],
+    technologies: ["Node.js", "NestJS", "TypeScript", "Next.js", "React", "PostgreSQL", "MongoDB"],
   },
   {
     role: "Junior Software Engineer",
     company: "QuilCraft",
     location: "Remote",
-    period: "December 2023 - November 2024",
+    period: "Dec 2023 — Nov 2024",
     type: "Part-time",
     description:
-      "Developed web applications, responsive components, and backend API integration workflows with React, TypeScript, and Node.js.",
-    responsibilities: [
-      "Built and maintained responsive, reusable web components and dynamic user interfaces using React.js and TypeScript.",
-      "Integrated backend REST APIs and handled asynchronous state management for real-time web applications.",
-      "Enhanced frontend performance, ensuring responsive cross-browser compatibility and smooth interactions.",
-      "Collaborated closely with design and engineering teams via Git version control and sprint cycles.",
-    ],
-    technologies: [
-      "React.js",
-      "TypeScript",
-      "Node.js",
-      "Tailwind CSS",
-      "JavaScript",
-      "REST APIs",
-      "Git",
-    ],
+      "Developed web applications, responsive modular components, and backend API integration workflows with React, TypeScript, and Node.js.",
+    technologies: ["React.js", "TypeScript", "Node.js", "REST APIs", "Tailwind CSS"],
   },
 ];
 
 const education = [
   {
-    degree: "Master of Science in Computer Science and Engineering",
+    degree: "Master of Science in Computer Science & Engineering",
     school: "Jahangirnagar University",
     location: "Savar, Dhaka, Bangladesh",
-    year: "2023 - 2024",
+    year: "2023 — 2024",
     description:
-      "Focused on advanced concepts of computer science, research methodologies, and software development.",
-    achievements: [
-      "Completed thesis on web application development",
-      "Participated in seminars and research workshops",
-    ],
+      "Advanced research methodologies in web application scalability, distributed software architectures, and algorithmic systems.",
   },
   {
-    degree: "Bachelor of Science in Computer Science and Engineering",
+    degree: "Bachelor of Science in Computer Science & Engineering",
     school: "University of Information Technology and Sciences (UITS)",
     location: "Dhaka, Bangladesh",
-    year: "2018 - 2022",
+    year: "2018 — 2022",
     description:
-      "Specialized in software engineering and web development. Actively involved in tech events and student activities.",
-    achievements: [
-      "Senior Executive at UITS Computer Club",
-      "Organized programming contests and skill-development seminars",
-    ],
+      "Software engineering foundations, database design, data structures, and student leadership as Senior Executive of UITS Computer Club.",
   },
 ];
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 px-6 md:px-12 bg-black">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Experience & Education
+    <section
+      id="experience"
+      className="w-full bg-[#f8f8f2] py-24 md:py-28 px-6"
+    >
+      <div className="max-w-[1200px] mx-auto">
+        {/* Section Heading: 30-48px weight 600 Studio Ink, left-aligned, no kicker */}
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-[#1a1a1a] tracking-[-1.2px] leading-[1.2] text-left">
+            Experience & Pedigree
           </h2>
-          <div className="w-16 h-1 bg-emerald-500 rounded-full mb-6"></div>
-        </motion.div>
+        </div>
 
+        {/* Editorial Work Experience List: 1px #1a1a1a hairline borders, horizontal layout */}
         <div className="space-y-16">
-          {/* Work Experience */}
           <div>
-            <h3 className="text-2xl font-semibold text-emerald-400 mb-8 flex items-center gap-3">
-              <Building2 className="w-6 h-6" />
-              Work Experience
+            <h3 className="text-[20px] font-semibold text-[#1a1a1a] tracking-[-0.5px] mb-6">
+              Professional Engagements
             </h3>
-            <div className="space-y-12 border-l border-white/10 ml-3 pl-8">
+            <div className="border-t border-[#1a1a1a]">
               {experiences.map((exp, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
+                  key={exp.role + exp.company}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                  className="py-8 border-b border-[#1a1a1a] flex flex-col md:flex-row md:items-start justify-between gap-6"
                 >
-                  <div className="absolute w-3 h-3 bg-emerald-500 rounded-full -left-[38px] top-2 ring-4 ring-black"></div>
+                  {/* Left Column: 20px weight 600 title, description, skills */}
+                  <div className="max-w-2xl">
+                    <h4 className="text-[20px] font-semibold text-[#1a1a1a] tracking-[-0.5px] leading-[1.4]">
+                      {exp.role}
+                    </h4>
+                    <p className="text-[14px] font-normal text-[#1a1a1a]/60 tracking-[-0.35px] mt-1">
+                      {exp.company} • {exp.location}
+                    </p>
+                    <p className="mt-4 text-[16px] leading-[1.5] tracking-[-0.4px] text-[#1a1a1a]/80">
+                      {exp.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {exp.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[12px] font-medium text-[#1a1a1a] bg-black/5 px-2.5 py-0.5 rounded-[9999px]"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
-                    <h4 className="text-xl font-bold text-white">{exp.role}</h4>
-                    <span className="inline-flex items-center gap-2 text-sm text-emerald-400 font-medium bg-emerald-500/10 px-3 py-1 rounded-full w-fit">
-                      <Calendar className="w-4 h-4" />
+                  {/* Right Column: 14px meta line in Studio Ink at 60% opacity */}
+                  <div className="md:text-right shrink-0">
+                    <span className="text-[14px] font-medium text-[#1a1a1a] tracking-[-0.35px] block">
                       {exp.period}
                     </span>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-neutral-400 text-sm mb-6">
-                    <span className="flex items-center gap-2">
-                      <Building2 className="w-4 h-4" />
-                      {exp.company}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      {exp.location}
-                    </span>
-                    <span className="inline-block px-2 py-0.5 border border-white/10 rounded-md text-xs">
+                    <span className="text-[14px] text-[#1a1a1a]/60 tracking-[-0.35px] block mt-0.5">
                       {exp.type}
                     </span>
-                  </div>
-
-                  <p className="text-neutral-300 mb-6 leading-relaxed">
-                    {exp.description}
-                  </p>
-
-                  <ul className="space-y-3 mb-6">
-                    {exp.responsibilities.map((task, i) => (
-                      <li key={i} className="flex gap-3 text-neutral-400">
-                        <span className="mt-1.5 w-1.5 h-1.5 bg-emerald-500/50 rounded-full shrink-0"></span>
-                        <span className="leading-relaxed">{task}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    {exp.technologies.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="text-xs font-medium px-3 py-1 bg-white/5 border border-white/10 rounded-full text-neutral-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Education */}
+          {/* Academic Background */}
           <div>
-            <h3 className="text-2xl font-semibold text-cyan-400 mb-8 flex items-center gap-3">
-              <GraduationCap className="w-6 h-6" />
-              Education
+            <h3 className="text-[20px] font-semibold text-[#1a1a1a] tracking-[-0.5px] mb-6">
+              Academic Background
             </h3>
-            <div className="space-y-12 border-l border-white/10 ml-3 pl-8">
+            <div className="border-t border-[#1a1a1a]">
               {education.map((edu, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
+                  key={edu.degree}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                  className="py-8 border-b border-[#1a1a1a] flex flex-col md:flex-row md:items-start justify-between gap-6"
                 >
-                  <div className="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[38px] top-2 ring-4 ring-black"></div>
-
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
-                    <h4 className="text-xl font-bold text-white">
+                  <div className="max-w-2xl">
+                    <h4 className="text-[20px] font-semibold text-[#1a1a1a] tracking-[-0.5px] leading-[1.4]">
                       {edu.degree}
                     </h4>
-                    <span className="inline-flex items-center gap-2 text-sm text-cyan-400 font-medium bg-cyan-500/10 px-3 py-1 rounded-full w-fit">
-                      <Calendar className="w-4 h-4" />
+                    <p className="text-[14px] font-normal text-[#1a1a1a]/60 tracking-[-0.35px] mt-1">
+                      {edu.school} • {edu.location}
+                    </p>
+                    <p className="mt-3 text-[16px] leading-[1.5] tracking-[-0.4px] text-[#1a1a1a]/80">
+                      {edu.description}
+                    </p>
+                  </div>
+
+                  <div className="md:text-right shrink-0">
+                    <span className="text-[14px] font-medium text-[#1a1a1a] tracking-[-0.35px]">
                       {edu.year}
                     </span>
                   </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-neutral-400 text-sm mb-6">
-                    <span className="flex items-center gap-2">
-                      <GraduationCap className="w-4 h-4" />
-                      {edu.school}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      {edu.location}
-                    </span>
-                  </div>
-
-                  <p className="text-neutral-300 mb-6 leading-relaxed">
-                    {edu.description}
-                  </p>
-
-                  <ul className="space-y-3">
-                    {edu.achievements.map((item, i) => (
-                      <li key={i} className="flex gap-3 text-neutral-400">
-                        <span className="mt-1.5 w-1.5 h-1.5 bg-cyan-500/50 rounded-full shrink-0"></span>
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </motion.div>
               ))}
             </div>

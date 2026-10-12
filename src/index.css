@@ -16,6 +16,19 @@
   --color-Primary: green;
   --color-bg-custom: linear-gradient(red, yellow);
 
+  /* Websmith Studio design tokens */
+  --color-cream-paper: #f8f8f2;
+  --color-card-white: #ffffff;
+  --color-studio-ink: #1a1a1a;
+  --color-deep-black: #000000;
+  --color-powder-blue: #bedbff;
+  --color-mint-wash: #a4f4cf;
+  --color-blush-tint: #ffc9c9;
+  --color-signal-green: #00c950;
+
+  /* Websmith tracking */
+  --tracking-editorial: -0.025em;
+
   /* breakpoint */
   --breakpoint-xxs: 390px;
   --breakpoint-xs: 480px;
@@ -56,6 +69,11 @@
       transform: rotate(360deg);
     }
   }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 /* radius */
