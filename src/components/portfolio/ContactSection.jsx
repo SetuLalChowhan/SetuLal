@@ -1,16 +1,6 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  Github,
-  Linkedin,
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
-} from "lucide-react";
+import { motion } from "motion/react";
+import { ArrowUpRight } from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -50,7 +40,6 @@ const ContactSection = () => {
     setErrorMessage("");
 
     try {
-      // Send message via web3forms or fallback
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -58,12 +47,12 @@ const ContactSection = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "e4d3a5ca-0b6c-4861-9c60-a292d3f7f897", // public contact access key
+          access_key: "e4d3a5ca-0b6c-4861-9c60-a292d3f7f897",
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          from_name: `${formData.name} (Portfolio Contact)`,
-          subject: `New Portfolio Message from ${formData.name}`,
+          from_name: `${formData.name} (Websmith Studio Contact)`,
+          subject: `New Collaboration Inquiry from ${formData.name}`,
         }),
       });
 
@@ -73,9 +62,8 @@ const ContactSection = () => {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        // Fallback to mailto link if API key is inactive
         window.location.href = `mailto:setulalchowhan@gmail.com?subject=${encodeURIComponent(
-          `Portfolio Contact from ${formData.name}`
+          `Collaboration Inquiry from ${formData.name}`
         )}&body=${encodeURIComponent(
           `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
         )}`;
@@ -83,9 +71,8 @@ const ContactSection = () => {
         setFormData({ name: "", email: "", message: "" });
       }
     } catch {
-      // Fallback directly on network error
       window.location.href = `mailto:setulalchowhan@gmail.com?subject=${encodeURIComponent(
-        `Portfolio Contact from ${formData.name}`
+        `Collaboration Inquiry from ${formData.name}`
       )}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       )}`;
@@ -95,240 +82,159 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 bg-neutral-950">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
-          <div className="w-16 h-1 bg-emerald-500 rounded-full mx-auto mb-6"></div>
-          <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-            Ready to start your next project? Let's discuss how we can work
-            together.
-          </p>
-        </motion.div>
+    <section
+      id="contact"
+      className="w-full bg-[#f8f8f2] py-24 md:py-28 px-6"
+    >
+      <div className="max-w-[1200px] mx-auto">
+        {/* Section Heading: 30-48px weight 600 Studio Ink, left-aligned, no kicker */}
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-[#1a1a1a] tracking-[-1.2px] leading-[1.2] text-left">
+            Initiate a Collaboration
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left Side: Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="space-y-12"
-          >
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Let's Connect
-              </h3>
-              <p className="text-neutral-400 leading-relaxed max-w-md">
-                I'm always interested in hearing about new software engineering opportunities,
-                backend/full-stack projects, and technical collaborations. Whether you have
-                a question or an exciting idea, feel free to reach out!
-              </p>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Direct Inquiries & Editorial Detail */}
+          <div className="lg:col-span-5 space-y-8">
+            <p className="text-[20px] font-normal leading-[1.4] tracking-[-0.5px] text-[#1a1a1a]">
+              Available for full-stack engineering contracts, backend architecture consultations, and select technical collaborations.
+            </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                  <Mail className="text-emerald-400 w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Email</h4>
-                  <a
-                    href="mailto:setulalchowhan@gmail.com"
-                    className="text-neutral-400 hover:text-emerald-400 transition-colors"
-                  >
-                    setulalchowhan@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                  <Phone className="text-emerald-400 w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Phone</h4>
-                  <a
-                    href="tel:01703235224"
-                    className="text-neutral-400 hover:text-emerald-400 transition-colors"
-                  >
-                    01703235224
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                  <MapPin className="text-emerald-400 w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Location</h4>
-                  <p className="text-neutral-400">
-                    Natunbazar, Dhaka-1212, Gulshan
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-white font-medium mb-4">Follow Me</h4>
-              <div className="flex gap-4">
+            <div className="space-y-4 pt-4 border-t border-[#1a1a1a]">
+              <div>
+                <span className="text-[14px] font-medium tracking-[-0.35px] text-[#1a1a1a]/60 block">
+                  Direct Correspondence
+                </span>
                 <a
-                  href="https://github.com/SetuLalChowhan"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all"
+                  href="mailto:setulalchowhan@gmail.com"
+                  className="text-[18px] font-semibold tracking-[-0.4px] text-[#1a1a1a] hover:underline underline-offset-4"
                 >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/setulal-chowhan/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all"
-                >
-                  <Linkedin className="w-5 h-5" />
+                  setulalchowhan@gmail.com
                 </a>
               </div>
+
+              <div>
+                <span className="text-[14px] font-medium tracking-[-0.35px] text-[#1a1a1a]/60 block">
+                  Location & Timezone
+                </span>
+                <span className="text-[16px] text-[#1a1a1a] tracking-[-0.4px]">
+                  Dhaka, Bangladesh (UTC+6) • Global Remote
+                </span>
+              </div>
+
+              <div className="pt-2 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#00c950] shrink-0" />
+                <span className="text-[14px] text-[#1a1a1a] font-medium tracking-[-0.35px]">
+                  Open for new projects and engineering roles
+                </span>
+              </div>
             </div>
-          </motion.div>
 
-          {/* Right Side: Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="bg-black border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden"
-          >
-            <AnimatePresence mode="wait">
-              {status === "success" ? (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  className="flex flex-col items-center justify-center text-center py-12 space-y-4"
-                >
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
-                  <p className="text-neutral-400 max-w-sm">
-                    Thank you for reaching out! I've received your message and will get back to you as soon as possible.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setStatus("idle")}
-                    className="mt-6 px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl border border-white/10 transition-colors"
-                  >
-                    Send Another Message
-                  </button>
-                </motion.div>
-              ) : (
-                <form
-                  key="form"
-                  onSubmit={handleSubmit}
-                  className="flex flex-col gap-6"
-                >
-                  {status === "error" && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl flex items-center gap-3 text-red-400 text-sm"
-                    >
-                      <AlertCircle className="w-5 h-5 shrink-0" />
-                      <span>{errorMessage || "Failed to send message. Please try again."}</span>
-                    </motion.div>
-                  )}
+            <div className="flex items-center gap-6 pt-2">
+              <a
+                href="https://github.com/SetuLalChowhan"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[14px] font-medium text-[#1a1a1a] underline underline-offset-4 flex items-center gap-1 hover:opacity-75"
+              >
+                GitHub <ArrowUpRight size={14} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/setulal-chowhan/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[14px] font-medium text-[#1a1a1a] underline underline-offset-4 flex items-center gap-1 hover:opacity-75"
+              >
+                LinkedIn <ArrowUpRight size={14} />
+              </a>
+            </div>
+          </div>
 
-                  {/* Full Name */}
-                  <div className="flex flex-col gap-2.5">
-                    <label
-                      htmlFor="name"
-                      className="text-sm font-medium text-neutral-300"
-                    >
-                      Full Name <span className="text-emerald-400">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your full name"
-                      required
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all text-sm md:text-base"
-                    />
-                  </div>
-
-                  {/* Email Address */}
-                  <div className="flex flex-col gap-2.5">
-                    <label
-                      htmlFor="email"
-                      className="text-sm font-medium text-neutral-300"
-                    >
-                      Email Address <span className="text-emerald-400">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your.email@example.com"
-                      required
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all text-sm md:text-base"
-                    />
-                  </div>
-
-                  {/* Message */}
-                  <div className="flex flex-col gap-2.5">
-                    <label
-                      htmlFor="message"
-                      className="text-sm font-medium text-neutral-300"
-                    >
-                      Message <span className="text-emerald-400">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me about your project or just say hello..."
-                      required
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all resize-none text-sm md:text-base"
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={status === "loading"}
-                    className="w-full group flex items-center justify-center gap-2 bg-white text-black font-semibold rounded-xl px-8 py-4 hover:bg-neutral-200 transition-all disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
-                  >
-                    {status === "loading" ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </>
-                    )}
-                  </button>
-                </form>
+          {/* Right Column: Editorial Contact Form */}
+          <div className="lg:col-span-7">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {status === "success" && (
+                <div className="p-5 rounded-[12px] bg-[#a4f4cf] text-[#1a1a1a] text-[15px] font-medium">
+                  Message dispatched successfully. Setulal will respond shortly.
+                </div>
               )}
-            </AnimatePresence>
-          </motion.div>
+
+              {status === "error" && (
+                <div className="p-5 rounded-[12px] bg-[#ffc9c9] text-[#1a1a1a] text-[15px] font-medium">
+                  {errorMessage || "Unable to deliver message. Please use direct email."}
+                </div>
+              )}
+
+              <div className="space-y-2">
+                <label
+                  htmlFor="name"
+                  className="block text-[14px] font-medium text-[#1a1a1a] tracking-[-0.35px]"
+                >
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="e.g. Jane Doe"
+                  className="w-full bg-[#ffffff] border border-[#1a1a1a]/20 focus:border-[#1a1a1a] text-[#1a1a1a] text-[16px] px-4 py-3.5 rounded-[12px] outline-none transition-colors"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label
+                  htmlFor="email"
+                  className="block text-[14px] font-medium text-[#1a1a1a] tracking-[-0.35px]"
+                >
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="e.g. jane@company.com"
+                  className="w-full bg-[#ffffff] border border-[#1a1a1a]/20 focus:border-[#1a1a1a] text-[#1a1a1a] text-[16px] px-4 py-3.5 rounded-[12px] outline-none transition-colors"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label
+                  htmlFor="message"
+                  className="block text-[14px] font-medium text-[#1a1a1a] tracking-[-0.35px]"
+                >
+                  Project Scope or Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Briefly describe your objectives, timeline, or engineering inquiry..."
+                  className="w-full bg-[#ffffff] border border-[#1a1a1a]/20 focus:border-[#1a1a1a] text-[#1a1a1a] text-[16px] px-4 py-3.5 rounded-[12px] outline-none transition-colors resize-none"
+                  required
+                />
+              </div>
+
+              {/* Dark Filled Button: #1a1a1a bg, #ffffff text, 16px weight 500, padding 16px 24px, 8px radius */}
+              <div>
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="bg-[#1a1a1a] text-[#ffffff] text-[16px] font-medium tracking-[-0.4px] px-6 py-4 rounded-[8px] hover:opacity-90 active:opacity-95 transition-opacity disabled:opacity-50"
+                >
+                  {status === "loading" ? "Dispatching..." : "Send Message"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -336,4 +242,3 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
-
